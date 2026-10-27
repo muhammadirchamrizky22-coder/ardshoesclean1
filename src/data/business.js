@@ -5,6 +5,16 @@ import afterImage2 from '../assets/after2.jpg'
 import beforeImage from '../assets/before.jpg'
 import beforeImage1 from '../assets/before 1.jpg'
 import beforeImage2 from '../assets/before2.jpg'
+import testimonialImage1 from '../assets/testimoni1.jpeg'
+import testimonialImage2 from '../assets/testimoni2.jpeg'
+import testimonialImage3 from '../assets/testimoni3.jpeg'
+import testimonialImage4 from '../assets/testimoni4.jpeg'
+import testimonialImage5 from '../assets/testimoni5.jpeg'
+import testimonialImage6 from '../assets/testimoni6.jpeg'
+import testimonialImage7 from '../assets/testimoni7.jpeg'
+import testimonialImage8 from '../assets/testimoni8.jpeg'
+import testimonialImage9 from '../assets/testimoni9.jpeg'
+import testimonialImage10 from '../assets/testimoni10.jpeg'
 
 // ============================================================
 // ALL business info is edited HERE (one place).
@@ -40,8 +50,20 @@ export const gallery = [
 // Hero photo (genuine ArdShoesClean photo).
 export { heroImage }
 
-// Add customer-approved screenshot imports to the image fields as they become available.
-export const testimonials = Array.from({ length: 10 }, (_, index) => ({
+const testimonialImages = [
+  testimonialImage1,
+  testimonialImage2,
+  testimonialImage3,
+  testimonialImage4,
+  testimonialImage5,
+  testimonialImage6,
+  testimonialImage7,
+  testimonialImage8,
+  testimonialImage9,
+  testimonialImage10,
+]
+
+export const testimonials = testimonialImages.map((image, index) => ({
   id: index + 1,
-  image: null,
+  image,
 }))
