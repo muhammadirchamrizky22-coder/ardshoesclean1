@@ -1,3 +1,5 @@
+import heroImage from '../assets/hero.jpg'
+
 // ============================================================
 // ALL business info is edited HERE (one place).
 // Items marked EDIT are not provided yet: fill in or leave empty.
@@ -30,8 +32,8 @@ export const gallery = [
   { title: 'Contoh pekerjaan 3', before: null, after: null },
 ]
 
-// Hero photo (genuine ArdShoesClean photo), e.g. '/images/hero.jpg'. null = placeholder.
-export const heroImage = null
+// Hero photo (genuine ArdShoesClean photo).
+export { heroImage }
 
 // Add ONLY real testimonials (with the customer's permission). Empty = section hidden.
 // Format: { name: 'Nama / inisial', text: 'Isi testimoni asli' }

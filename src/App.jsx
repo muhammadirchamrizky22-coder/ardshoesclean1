@@ -18,8 +18,8 @@ export default function App() {
   const addItem = (id, qty = 1, name = '') => {
     setCart((c) =>
       c.some((l) => l.id === id)
-        ? c.map((l) => (l.id === id ? { ...l, qty: Number(l.qty) + qty } : l))
-        : [...c, { id, qty }]
+        ? c.map((l) => (l.id === id ? { ...l, qty: Math.min(99, Number(l.qty) + qty) } : l))
+        : [...c, { id, qty: Math.min(99, qty) }]
     )
     setToast(name ? `${name} ditambahkan ke pesanan` : 'Ditambahkan ke pesanan')
     window.clearTimeout(window.__toastTimer)

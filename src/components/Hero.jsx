@@ -18,7 +18,7 @@ export default function Hero() {
         </div>
         <div className="hero-visual">
           {heroImage ? (
-            <img src={heroImage} alt="Sepatu yang dicuci oleh ArdShoesClean" width="640" height="800" />
+            <img src={heroImage} alt="Maskot ArdShoesClean sedang membersihkan sepatu" width="640" height="800" />
           ) : (
             <div className="ph" role="img" aria-label="Placeholder foto hero">
               <strong>Foto hero</strong>

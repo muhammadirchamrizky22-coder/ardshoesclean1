@@ -87,10 +87,10 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
             </div>
             {editable ? (
               <div className="qty">
-                <button type="button" aria-label={`Kurangi ${s.name}`} onClick={() => setQty(l.id, Math.max(1, Number(l.qty) - 1))}>-</button>
+                <button type="button" aria-label={`Kurangi ${s.name}`} disabled={Number(l.qty) <= 1} onClick={() => setQty(l.id, Math.max(1, Number(l.qty) - 1))}>-</button>
                 <input aria-label={`Jumlah ${s.name}`} type="number" min="1" max="99" inputMode="numeric" value={l.qty}
-                  onChange={(e) => setQty(l.id, e.target.value === '' ? '' : Number(e.target.value))} />
-                <button type="button" aria-label={`Tambah ${s.name}`} onClick={() => setQty(l.id, Number(l.qty) + 1)}>+</button>
+                  onChange={(e) => setQty(l.id, e.target.value === '' ? '' : Math.min(99, Number(e.target.value)))} />
+                <button type="button" aria-label={`Tambah ${s.name}`} disabled={Number(l.qty) >= 99} onClick={() => setQty(l.id, Math.min(99, Number(l.qty) + 1))}>+</button>
               </div>
             ) : (
               <span>{l.qty} x</span>
