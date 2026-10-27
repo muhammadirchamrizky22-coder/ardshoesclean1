@@ -1,4 +1,10 @@
 import heroImage from '../assets/hero.jpg'
+import afterImage from '../assets/after.jpg'
+import afterImage1 from '../assets/after1.jpg'
+import afterImage2 from '../assets/after2.jpg'
+import beforeImage from '../assets/before.jpg'
+import beforeImage1 from '../assets/before 1.jpg'
+import beforeImage2 from '../assets/before2.jpg'
 
 // ============================================================
 // ALL business info is edited HERE (one place).
@@ -24,12 +30,11 @@ export const business = {
   story: '',
 }
 
-// Before/after photos. Set `before` and `after` to genuine ArdShoesClean photos, e.g. '/images/before-1.jpg'.
-// While null, a labeled placeholder is shown. Never use stock photos here.
+// Before/after photos for the gallery.
 export const gallery = [
-  { title: 'Contoh pekerjaan 1', before: null, after: null },
-  { title: 'Contoh pekerjaan 2', before: null, after: null },
-  { title: 'Contoh pekerjaan 3', before: null, after: null },
+  { before: beforeImage, after: afterImage },
+  { before: beforeImage1, after: afterImage1 },
+  { before: beforeImage2, after: afterImage2 },
 ]
 
 // Hero photo (genuine ArdShoesClean photo).
