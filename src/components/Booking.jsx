@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { categories, getService, lineTotal, cartTotal, formatIDR } from '../data/services.js'
 import { business } from '../data/business.js'
+import qrisImage from '../assets/qris.jpeg'
 
 const makeRef = () => {
   const d = new Date()
@@ -14,6 +15,7 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
   const [errors, setErrors] = useState({})
   const [step, setStep] = useState('form') // 'form' | 'confirm'
   const [ref, setRef] = useState('')
+  const [paymentConfirmed, setPaymentConfirmed] = useState(false)
   const [pickCat, setPickCat] = useState(categories[0].id)
   const [pickSvc, setPickSvc] = useState(categories[0].items[0].id)
   const [pickQty, setPickQty] = useState(1)
@@ -49,6 +51,7 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
     setErrors(e)
     if (Object.keys(e).length) return
     setRef(makeRef())
+    setPaymentConfirmed(false)
     setStep('confirm')
     document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -70,7 +73,7 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
       `Total: ${formatIDR(total)}`,
       `Catatan: ${form.notes.trim() || '-'}`,
       '',
-      'Mohon konfirmasi pesanan dan cara pembayarannya. Terima kasih.',
+      'Saya sudah membayar melalui QRIS sesuai total pesanan. Mohon cek pembayaran dan konfirmasi pesanan saya. Terima kasih.',
     ].join('\n')
 
   const waUrl = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(step === 'confirm' ? message() : '')}`
@@ -107,7 +110,7 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
     <section id="booking" className="section dark">
       <div className="wrap">
         <h2>Pesan Sekarang</h2>
-        <p className="sub">Pesanan dikirim lewat WhatsApp dan tidak disimpan di database website. Pesanan baru berjalan setelah admin mengonfirmasi.</p>
+        <p className="sub">Pembayaran dilakukan manual melalui QRIS. Pesanan dikonfirmasi setelah admin memeriksa pembayaran dan membalas WhatsApp.</p>
 
         {step === 'form' ? (
           <form onSubmit={review} noValidate className="booking">
@@ -173,13 +176,22 @@ export default function Booking({ cart, addItem, setQty, removeItem, clearCart }
             <p>Nama: {form.name.trim()}<br />WhatsApp: {form.phone.trim()}<br />Catatan: {form.notes.trim() || '-'}</p>
             <Summary />
             <p className="total">Total <strong>{formatIDR(total)}</strong></p>
+            <div className="qris-payment">
+              <h4>Bayar dengan QRIS</h4>
+              <img className="qris-image" src={qrisImage} alt="QRIS ArdShoesClean" />
+              <p>Scan QRIS, lalu masukkan nominal <strong>{formatIDR(total)}</strong> secara manual. Pastikan nominalnya sesuai sebelum membayar.</p>
+              <p className="hint">Jika membuka halaman ini di ponsel yang sama, simpan gambar QRIS atau buka halaman ini di perangkat lain untuk memindainya.</p>
+            </div>
             <p className="notice">
-              Tombol di bawah hanya membuka WhatsApp dengan pesan siap kirim. Kamu harus menekan kirim di WhatsApp.
-              Pesanan baru dianggap diterima setelah admin membalas dan mengonfirmasi. Pembayaran disepakati lewat WhatsApp.
+              Pembayaran QRIS statis tidak diverifikasi otomatis oleh website. Admin akan mengecek pembayaran secara manual. Kirim bukti pembayaran di WhatsApp jika diminta.
             </p>
+            <label className="payment-check">
+              <input type="checkbox" checked={paymentConfirmed} onChange={(event) => setPaymentConfirmed(event.target.checked)} />
+              <span>Saya sudah membayar {formatIDR(total)} melalui QRIS.</span>
+            </label>
             <div className="row">
-              <a className="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">Buka WhatsApp dan kirim pesanan</a>
-              <button type="button" className="btn btn-ghost-light" onClick={() => setStep('form')}>Ubah pesanan</button>
+              <button className="btn btn-primary" type="button" disabled={!paymentConfirmed} onClick={() => window.open(waUrl, '_blank', 'noopener,noreferrer')}>Konfirmasi pembayaran via WhatsApp</button>
+              <button type="button" className="btn btn-ghost-light" onClick={() => { setPaymentConfirmed(false); setStep('form') }}>Ubah pesanan</button>
             </div>
           </div>
         )}

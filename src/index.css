@@ -143,6 +143,12 @@ input[aria-invalid=true]{border-color:#c4221a}
 .total strong{font:800 1.8rem var(--head);color:var(--blue-dark)}
 .panel .link{color:var(--blue)}
 .confirm{max-width:720px}
+.qris-payment{margin:1.2rem 0;padding:1rem;background:#f8fafc;border:1px solid var(--line);border-radius:var(--r-sm)}
+.qris-payment h4{margin:0 0 .8rem}
+.qris-payment p:last-child{margin-bottom:0}
+.qris-image{display:block;width:min(100%,320px);height:auto;margin:0 auto 1rem;border:1px solid var(--line);border-radius:var(--r-sm)}
+.payment-check{display:flex;align-items:flex-start;gap:.65rem;margin:1rem 0;font-weight:500}
+.payment-check input{width:auto;flex:0 0 auto;margin:.35rem 0 0}
 
 /* contact */
 .contacts{list-style:none;padding:0;margin:0 0 1.5rem;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}

@@ -1,8 +1,8 @@
 const steps = [
   ['Pilih layanan', 'Jelajahi layanan dan tambahkan ke pesanan beserta jumlahnya.'],
   ['Cek ringkasan', 'Periksa rincian harga dan total, lalu isi nama dan nomor WhatsApp.'],
-  ['Kirim lewat WhatsApp', 'Pesan siap kirim terbuka di WhatsApp. Tekan kirim di sana.'],
-  ['Konfirmasi admin', 'Admin menghubungi kamu untuk konfirmasi pesanan dan cara pembayaran.'],
+  ['Bayar dengan QRIS', 'Scan QRIS, lalu masukkan nominal sesuai total pesanan secara manual.'],
+  ['Konfirmasi pembayaran', 'Centang sudah membayar dan kirim pesanan lewat WhatsApp. Admin akan mengecek pembayaran secara manual.'],
 ]
 
 export default function HowItWorks() {
@@ -16,8 +16,8 @@ export default function HowItWorks() {
           ))}
         </ol>
         <p className="notice">
-          Pesanan lewat website belum otomatis diterima. Pesanan dianggap berjalan setelah admin mengonfirmasi lewat WhatsApp.
-          Website ini tidak menyimpan data pesanan dan tidak memproses pembayaran.
+          QRIS statis tidak diverifikasi otomatis oleh website. Pesanan diproses setelah admin memeriksa pembayaran dan mengonfirmasi lewat WhatsApp.
+          Website ini tidak menyimpan data pesanan.
         </p>
       </div>
     </section>

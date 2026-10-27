@@ -2,8 +2,8 @@
 
 Website layanan cuci sepatu, tas, helm, dan topi. React + Vite + plain CSS. No database, no backend, no paid services.
 
-**Order flow:** customer picks services, reviews the summary, and the site opens WhatsApp with a prefilled message.
-Orders are **not saved** in any website database and there is **no payment gateway**. An order only counts after you confirm it in WhatsApp, and payment is agreed there.
+**Order flow:** customers review their order, pay the displayed total using the static QRIS image, then send a prefilled payment confirmation through WhatsApp.
+Orders are **not saved** in a website database and there is **no payment gateway**. Payment is not verified by the website; the admin checks it manually and confirms the order through WhatsApp.
 
 ## Structure
 ```
