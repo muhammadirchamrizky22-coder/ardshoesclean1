@@ -33,6 +33,7 @@ export const business = {
   tiktokHandle: '@ardshoesclean',
   // Standard TikTok profile format built from the handle. Open it once to verify it, and fix it here if needed.
   tiktokUrl: 'https://www.tiktok.com/@ardshoesclean',
+  googleMapsUrl: 'https://maps.app.goo.gl/pgUoqcJmfCMQjMdd6',
   // EDIT: leave '' to hide. Not provided, so nothing is shown.
   address: '',
   hours: '',

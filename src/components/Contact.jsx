@@ -6,6 +6,7 @@ const Svg = ({ children }) => (
 const IconWA = () => (<Svg><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.5L3 21z" /><path d="M9 9c0 3 3 6 6 6l1-1.5-2-1-1 .7c-1-.4-1.800-1.200-2.200-2.200l.7-1-1-2L9 9z" /></Svg>)
 const IconIG = () => (<Svg><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.500" cy="6.500" r=".5" /></Svg>)
 const IconTT = () => (<Svg><path d="M14 3v12a4 4 0 1 1-4-4" /><path d="M14 3c.5 2.500 2.200 4 5 4" /></Svg>)
+const IconMap = () => (<Svg><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z" /><circle cx="12" cy="10" r="2.5" /></Svg>)
 
 export default function Contact() {
   const wa = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(`Halo ${business.name}, saya ingin bertanya.`)}`
@@ -29,6 +30,11 @@ export default function Contact() {
             <li>
               <a className="contact" href={business.tiktokUrl} target="_blank" rel="noopener noreferrer">
                 <IconTT /><span><strong>TikTok</strong><small>{business.tiktokHandle}</small></span>
+              </a>
+            </li>
+            <li>
+              <a className="contact" href={business.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                <IconMap /><span><strong>Temukan toko kami</strong><small>Buka di Google Maps</small></span>
               </a>
             </li>
           </ul>
