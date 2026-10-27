@@ -36,7 +36,7 @@ Edit `src/data/business.js` (WhatsApp number is digits only, e.g. `6289521148863
 ## Replace images
 Copy real photos into `public/images/` and set paths in `business.js`, e.g. `heroImage: '/images/hero.jpg'`,
 gallery `before: '/images/before-1.jpg'`. While empty, labeled placeholders are shown. Only use genuine ArdShoesClean photos.
-Testimonials stay hidden until you add real ones (with the customer's permission).
+The testimonial carousel has 10 portrait slots. Import customer-approved screenshots into `src/data/business.js` and assign each file to a slot's `image` field; redact personal information before publishing.
 
 ## Push and deploy (GitHub + Vercel)
 ```bash

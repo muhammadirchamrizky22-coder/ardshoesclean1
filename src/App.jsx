@@ -41,8 +41,8 @@ export default function App() {
         <Services onAdd={addItem} cart={cart} />
         <Gallery />
         <HowItWorks />
-        {testimonials.length > 0 && <Testimonials />}
         <Booking cart={cart} addItem={addItem} setQty={setQty} removeItem={removeItem} clearCart={clearCart} />
+        {testimonials.length > 0 && <Testimonials />}
         <Contact />
       </main>
       <p className="toast" role="status" aria-live="polite">{toast}</p>

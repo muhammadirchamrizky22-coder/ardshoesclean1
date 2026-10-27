@@ -40,6 +40,8 @@ export const gallery = [
 // Hero photo (genuine ArdShoesClean photo).
 export { heroImage }
 
-// Add ONLY real testimonials (with the customer's permission). Empty = section hidden.
-// Format: { name: 'Nama / inisial', text: 'Isi testimoni asli' }
-export const testimonials = []
+// Add customer-approved screenshot imports to the image fields as they become available.
+export const testimonials = Array.from({ length: 10 }, (_, index) => ({
+  id: index + 1,
+  image: null,
+}))
